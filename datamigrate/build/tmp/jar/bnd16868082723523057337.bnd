@@ -1,0 +1,13 @@
+Private-Package=*;-split-package\:\=merge-first
+Bundle-Name=Data inspection and mutation tool
+X-Source-Paths=C\:/Users/root/dev/enonic-data-migrater/datamigrate/src/main/resources,C\:/Users/root/dev/enonic-data-migrater/datamigrate/build/resources/main
+Import-Package=*;resolution\:\=optional
+-dsannotations=*
+X-Capability=
+X-Vendor-Name=null
+Bundle-SymbolicName=no.bouvet.datamigrate
+X-Bundle-Type=system
+X-System-Version=[7.3,8)
+-removeheaders=Require-Capability,Include-Resource
+X-Vendor-Url=null
+-nouses=true
