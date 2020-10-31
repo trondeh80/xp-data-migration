@@ -1,25 +1,38 @@
+import React, { useReducer } from "react";
+import JobContext, { jobState } from './context/job-context';
+import jobReducer from './context/job-reducers';
+import LeftPanel from './components/LeftPanel/LeftPanel';
 import './App.scss';
+import MainPanel from "./components/MainPanel/MainPanel";
+import RightPanel from "./components/RightPanel/RightPanel";
+
 
 function App() {
+  const [state, dispatch] = useReducer(jobReducer, jobState);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <h1>XP Data Migration Tool</h1>
-      </header>
-      <div className="alert wide-alert hidden">
-
+    <JobContext.Provider value={{state, dispatch}}>
+      <div className="App">
+        <header className="App-header">
+          <h1>XP Data Migration Tool</h1>
+        </header>
+        <div className="alert wide-alert hidden"></div>
+        <main>
+          <div className="grid grid-cols-12">
+            <div className="col-span-3">
+              <LeftPanel />
+            </div>
+            <div className="col-span-6">
+              <MainPanel />
+            </div>
+            <div className="col-span-3">
+              <RightPanel />
+            </div>
+          </div>
+        </main>
+        <footer></footer>
       </div>
-      <main>
-      <div className="flex flex-row bg-gray-200">
-        <div className="text-gray-700 text-center bg-gray-400 px-4 py-2 m-2">1</div>
-        <div className="text-gray-700 text-center bg-gray-400 px-4 py-2 m-2">2</div>
-        <div className="text-gray-700 text-center bg-gray-400 px-4 py-2 m-2">3</div>
-      </div>
-      </main>
-      <footer>
-
-      </footer>
-    </div>
+    </JobContext.Provider>
   );
 }
 
