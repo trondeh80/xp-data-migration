@@ -10,3 +10,7 @@
 .btn-blue:hover {
     @apply bg-blue-700;
 }
+
+.active {
+    @apply bg-green-500;
+}

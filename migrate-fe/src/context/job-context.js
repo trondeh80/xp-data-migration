@@ -1,10 +1,11 @@
 import React from 'react';
 
 export const jobState = {
-  current: null,  
+  current: null,
   jobs: [{
       id: null,
-      displayName: 'My first migration'
+      displayName: 'My first migration',
+      tasks: [],
   }],
   tasks: [],
   queries: [],
