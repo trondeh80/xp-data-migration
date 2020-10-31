@@ -1,8 +1,7 @@
 const ENUMS = {
-    JOBS: {
-        ACTIONS: {
-            UPDATE: 'update'
-        }
+    ACTIONS: {
+        UPDATE: 'update',
+        ACTIVATE_JOB: 'activate-job'
     }
 }
 

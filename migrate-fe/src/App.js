@@ -30,7 +30,9 @@ function App() {
             </div>
           </div>
         </main>
-        <footer></footer>
+        <footer>
+          
+        </footer>
       </div>
     </JobContext.Provider>
   );

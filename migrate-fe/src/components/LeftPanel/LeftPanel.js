@@ -9,7 +9,7 @@ export default function LeftPanel(props) {
   return (
     <div className="left-panel">
       {jobs.map(({id, displayName}) => (
-        <Job key={id} id={id} displayName={displayName}></Job>
+        <Job key={id} id={id} displayName={displayName} />
       ))}
     </div>
   );
