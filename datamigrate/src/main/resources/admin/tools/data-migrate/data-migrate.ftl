@@ -15,6 +15,8 @@
 
     <main class="container mx-auto grid grid-cols-12">
         <div class="panel col-span-4" id="editor">
+
+
         </div>
         <div class="panel col-span-8" id="result">
             <h2>JSON:</h2>
