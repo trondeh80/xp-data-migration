@@ -7,6 +7,7 @@
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
     "autoprefixer": "^10.0.1",
+    "ncp": "^2.0.0",
     "node-sass": "^4.14.1",
     "postcss-cli": "^8.2.0",
     "react": "^17.0.1",
@@ -17,8 +18,8 @@
   },
   "scripts": {
     "start": "npm run build:style && react-scripts start",
-    "build": "react-scripts build",
-    "build:style":"tailwind build src/css/index.css -o src/css/tailwind.css",
+    "build": "npm run build:style && react-scripts build && node xpCopy",
+    "build:style": "tailwind build src/css/index.css -o src/css/tailwind.css",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },

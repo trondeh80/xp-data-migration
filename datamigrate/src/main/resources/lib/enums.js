@@ -1,4 +1,10 @@
-const ENUMS = {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports["default"] = void 0;
+var ENUMS = {
   REPOSITORY_ID: 'bouvet.tool.datamigrate',
   REPO_PATH: {
     JOBS: '/jobs',
@@ -16,5 +22,5 @@ const ENUMS = {
     INTERNAL_SERVER_ERROR: 500
   }
 };
-
-export default ENUMS;
+var _default = ENUMS;
+exports["default"] = _default;

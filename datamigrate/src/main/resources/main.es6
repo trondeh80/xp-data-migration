@@ -1,11 +1,10 @@
+import  ENUMS from './lib/enums';
+import { run } from '/lib/xp/context';
 import { createRepository } from './lib/repository';
-import { REPOSITORY_ID } from './lib/enums';
 
-init();
+run({ user: { login: 'su' } }, init);
 
 function init() {
-  log.info('init migrate');
-  // Create repository if it does not exists
-  createRepository(REPOSITORY_ID);
-
+  log.info('Data migrate initialization');
+  createRepository(ENUMS.REPOSITORY_ID);
 }

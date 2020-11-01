@@ -1,31 +1,31 @@
-import { REPOSITORY_ID } from '../../lib/enums';
+import ENUMS from '../../lib/enums';
 import createRepoInterface from '../../lib/repository';
+import createResponse from '../create-response';
 
 export function get({ params: { id = null, start, count }}) {
   if (!id) {
-    return response(getJobs({ start, count }));
+    return createResponse(getJobs({ start, count }));
   }
-  return response(getJob({ id }));
+  return createResponse(getJob({ id }));
 }
 
 export function post({ params }) {
-  // Todo: Add new / update
+  // Todo: Add new
 }
 
-function getJobs({ start, count = 24 }) {
-  const { hits, total } = createRepoInterface(REPOSITORY_ID).query({
-    start: 0,
-    count: 25,
-  })
+export function put({ params }) {
+  // Todo: update
+}
+
+function getJobs({ start = 0, count = 24 }) {
+  const { hits, total } = createRepoInterface(ENUMS.REPOSITORY_ID).query({
+    start,
+    count,
+  });
+
+  return { hits: [].concat(hits), total };
 }
 
 function getJob({ id }) {
-  return createRepoInterface(REPOSITORY_ID).get({ id })
-}
-
-function response(data) {
-  return {
-    body: JSON.stringify(data),
-    contentType: 'application/json'
-  };
+  return createRepoInterface(ENUMS.REPOSITORY_ID).get({ id })
 }

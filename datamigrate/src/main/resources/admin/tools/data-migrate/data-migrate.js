@@ -6,7 +6,8 @@ Object.defineProperty(exports, "__esModule", {
 exports.get = get;
 
 var _require = require('/lib/xp/portal'),
-    assetUrl = _require.assetUrl;
+    assetUrl = _require.assetUrl,
+    serviceUrl = _require.serviceUrl;
 
 var _require2 = require('/site/lib/tineikt/freemarker'),
     render = _require2.render;
@@ -14,6 +15,12 @@ var _require2 = require('/site/lib/tineikt/freemarker'),
 var view = resolve('data-migrate.ftl');
 
 function get(req) {
+  log.info(serviceUrl({
+    service: 'job-service'
+  }));
+  log.info(assetUrl({
+    path: 'js/data-migrate.js'
+  }));
   var model = {
     assetsUrl: assetUrl({
       path: '/'
