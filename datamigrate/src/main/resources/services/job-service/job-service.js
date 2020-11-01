@@ -5,20 +5,15 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.get = get;
 exports.post = post;
-exports.options = void 0;
+exports.put = put;
 
 var _enums = _interopRequireDefault(require("../../lib/enums"));
 
 var _repository = _interopRequireDefault(require("../../lib/repository"));
 
-var _createOptionsResponse = _interopRequireDefault(require("../create-options-response"));
-
 var _createResponse = _interopRequireDefault(require("../create-response"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
-
-var options = (0, _createOptionsResponse["default"])();
-exports.options = options;
 
 function get(_ref) {
   var _ref$params = _ref.params,
@@ -39,16 +34,21 @@ function get(_ref) {
   }));
 }
 
-function post(_ref2) {// Todo: Add new / update
+function post(_ref2) {// Todo: Add new
 
   var params = _ref2.params;
 }
 
-function getJobs(_ref3) {
-  var _ref3$start = _ref3.start,
-      start = _ref3$start === void 0 ? 0 : _ref3$start,
-      _ref3$count = _ref3.count,
-      count = _ref3$count === void 0 ? 24 : _ref3$count;
+function put(_ref3) {// Todo: update
+
+  var params = _ref3.params;
+}
+
+function getJobs(_ref4) {
+  var _ref4$start = _ref4.start,
+      start = _ref4$start === void 0 ? 0 : _ref4$start,
+      _ref4$count = _ref4.count,
+      count = _ref4$count === void 0 ? 24 : _ref4$count;
 
   var _createRepoInterface$ = (0, _repository["default"])(_enums["default"].REPOSITORY_ID).query({
     start: start,
@@ -63,8 +63,8 @@ function getJobs(_ref3) {
   };
 }
 
-function getJob(_ref4) {
-  var id = _ref4.id;
+function getJob(_ref5) {
+  var id = _ref5.id;
   return (0, _repository["default"])(_enums["default"].REPOSITORY_ID).get({
     id: id
   });

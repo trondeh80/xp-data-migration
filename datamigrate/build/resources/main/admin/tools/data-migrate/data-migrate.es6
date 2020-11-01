@@ -3,12 +3,10 @@ const { render } = require('/site/lib/tineikt/freemarker');
 
 const view = resolve('data-migrate.ftl');
 
-export function get(req) {
-  log.info(serviceUrl({ service: 'job-service' }));
-  log.info(assetUrl({ path: 'js/data-migrate.js' }))
-
+export function get() {
   const model = {
-    assetsUrl: assetUrl({ path: '/' })
+    assetsUrl: assetUrl({ path: '/' }),
+    jobServiceUrl: serviceUrl({ service: 'job-service' })
   };
 
   return {

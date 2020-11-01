@@ -7,8 +7,6 @@ exports["default"] = createResponse;
 
 var _enums = _interopRequireDefault(require("../lib/enums"));
 
-var _createHeaders = _interopRequireDefault(require("./create-headers"));
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
 function createResponse(response) {
@@ -16,7 +14,6 @@ function createResponse(response) {
   return {
     status: httpStatusCode,
     body: response,
-    contentType: 'application/json',
-    headers: (0, _createHeaders["default"])()
+    contentType: 'application/json'
   };
 }
