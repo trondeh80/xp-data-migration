@@ -14,18 +14,16 @@ var _require2 = require('/site/lib/tineikt/freemarker'),
 
 var view = resolve('data-migrate.ftl');
 
-function get(req) {
-  log.info(serviceUrl({
-    service: 'job-service'
-  }));
-  log.info(assetUrl({
-    path: 'js/data-migrate.js'
-  }));
+function get() {
   var model = {
     assetsUrl: assetUrl({
       path: '/'
+    }),
+    jobServiceUrl: serviceUrl({
+      service: 'job-service'
     })
   };
+  log.info(JSON.stringify(model, null, 4));
   return {
     body: render(view, model)
   };

@@ -9,6 +9,8 @@ export function get() {
     jobServiceUrl: serviceUrl({ service: 'job-service' })
   };
 
+  log.info(JSON.stringify(model, null, 4));
+
   return {
     body: render(view, model)
   };
