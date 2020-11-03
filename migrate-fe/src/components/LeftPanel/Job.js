@@ -3,16 +3,21 @@ import ENUMS from '../../ENUMS';
 import './job.scss';
 import JobContext from '../../context/job-context';
 
-export default function Job({id, displayName = ''}) {
+export default function Job({className, id, displayName = '', ...rest }) {
   const {state, dispatch} = useContext(JobContext);
   const {current} = state;
   
-  const classes = `${
-    current?.id === id ? 'active' : ''
-  } job group bg-white hover:bg-green-500`;
+  const classes = ['job group bg-white hover:bg-green-500'];
+  if (className) {
+    classes.push(className);
+  }
+
+  if (current?.id === id) {
+    classes.push('active');
+  }
 
   return (
-    <div className={classes} onClick={onEdit}>
+    <div className={classes.join(' ')} onClick={onEdit}>
       <div className="job-inner group-hover:text-white">
         <h3>{displayName}</h3>
         <button className="activate btn btn-blue" onClick={onEdit}>

@@ -9,14 +9,14 @@ export default function jobReducer(state, { type, data }) {
         ...state,
         ...data
       };
-
+      
     case ENUMS.ACTIONS.ACTIVATE_JOB:
         return {
             ...state,
             current: {
                 ...data
             }
-        } 
+        };
 
     default:
       return jobState;
