@@ -5,21 +5,23 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.get = get;
 
-var _require = require('/lib/xp/portal'),
-    assetUrl = _require.assetUrl;
+var _portal = require("/lib/xp/portal");
 
-var _require2 = require('/site/lib/tineikt/freemarker'),
-    render = _require2.render;
+var _freemarker = require("/site/lib/tineikt/freemarker");
 
 var view = resolve('data-migrate.ftl');
 
-function get(req) {
+function get() {
   var model = {
-    assetsUrl: assetUrl({
+    assetsUrl: (0, _portal.assetUrl)({
       path: '/'
+    }),
+    jobServiceUrl: (0, _portal.serviceUrl)({
+      service: 'job-service'
     })
   };
+  log.info(JSON.stringify(model, null, 4));
   return {
-    body: render(view, model)
+    body: (0, _freemarker.render)(view, model)
   };
 }
