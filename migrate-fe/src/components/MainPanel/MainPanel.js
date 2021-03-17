@@ -1,18 +1,27 @@
 import React, {useContext} from 'react';
 import JobContext from '../../context/job-context';
+import Modal from '../modal/Modal';
 import ENUMS from '../../ENUMS';
 
 export default function MainPanel() {
   const {state, dispatch} = useContext(JobContext);
-  const {current} = state;
+  const {current, next = null} = state;
   if (!current) {
     return <></>;
   }
-  console.log('rendering current job', current);
-  const {id, displayName, activeTask} = current;
+  const {id, displayName} = current;
+  console.log(next);
 
   return (
     <>
+    {
+        next !== null && (
+        <>
+          <p>TEst</p>
+          <Modal next={next} />
+        </>
+      )
+    }
       <div className="grid grid-cols-3 gap-6">
         <div className="col-span-3 sm:col-span-2">
           <label

@@ -6,12 +6,12 @@ import './App.scss';
 import MainPanel from "./components/MainPanel/MainPanel";
 import RightPanel from "./components/RightPanel/RightPanel";
 
-
 function App() {
   const [state, dispatch] = useReducer(jobReducer, jobState);
 
   return (
     <JobContext.Provider value={{state, dispatch}}>
+   
       <div className="App">
         <header className="App-header">
           <h1>XP Data Migration Tool</h1>

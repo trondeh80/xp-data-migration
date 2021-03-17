@@ -1,22 +1,29 @@
 import ENUMS from '../ENUMS';
-import { jobState } from './job-context';
+import {jobState} from './job-context';
 
-export default function jobReducer(state, { type, data }) {
+export default function jobReducer(state, {type, data}) {
   switch (type) {
     case ENUMS.ACTIONS.UPDATE:
-      debugger;
       return {
         ...state,
-        ...data
+        ...data,
       };
-      
+
     case ENUMS.ACTIONS.ACTIVATE_JOB:
-        return {
-            ...state,
-            current: {
-                ...data
-            }
-        };
+      return {
+        ...state,
+        current: {
+          ...data,
+        },
+      };
+
+    case ENUMS.ACTIONS.CONFIRM_ACTIVATE_JOB:
+      return {
+        ...state,
+        next: {
+          ...data
+        }
+      };
 
     default:
       return jobState;

@@ -27,9 +27,20 @@ export default function Job({className, id, displayName = '', ...rest }) {
     </div>
   );
 
-  function onEdit() {
+  function onEdit(e) {
+    e.preventDefault();
+    e.stopPropagation();
+    
+    // if (current?.id !== id) {
+    //   console.log('Not the same id');
+    //   return dispatch({
+    //     type: ENUMS.ACTIONS.CONFIRM_ACTIVATE_JOB,
+    //     data: { id, displayName }
+    //   });
+    // }
+    
     dispatch({
-      type: ENUMS.ACTIONS.ACTIVATE_JOB,
+      type: ENUMS.ACTIONS.ACTIVATE_JOB, 
       data: { id, displayName },
     });
   }
